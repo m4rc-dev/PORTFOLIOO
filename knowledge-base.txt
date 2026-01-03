@@ -1,0 +1,41 @@
+# Marcelo Cagara - Knowledge Base
+
+## Profile
+- **Name:** Marcelo Cagara
+- **Title:** Aspiring Full Stack Developer
+- **Location:** Cebu City, Philippines
+- **Summary:** Aspiring full-stack developer and student, passionate about building impactful solutions with JavaScript, Python, and PHP. Focused on building practical solutions, improving workflows, and exploring AI integration. Seeking an internship opportunity to learn and contribute as a full-stack engineer.
+
+## Professional Experience & Education
+- **Education:** BS Information Technology, University of Cebu (2022 - 2026)
+- **Freelance Developer:** Working on small projects (2025 - Present)
+- **Community Member:** Active in local IT groups and tech organizations (2025 - Present)
+- **Hello World! 👋** - Wrote first line of code at University of Cebu (2022)
+
+## Key Projects
+1. **CodeCred:** Online certifications for programmers. Tech: Next.js, PostgreSQL, Tailwind.
+2. **BASE404:** Online coding bootcamp. Tech: React, Node.js, AWS.
+3. **DIIN.PH:** AI-powered wardrobe assistant. Tech: Python, PyTorch, Vue.
+4. **DYNAMIS Workout Tracker:** AI-powered workout tracker. Tech: React Native, Firebase.
+
+## Technical Skills
+- **Frontend:** JavaScript, TypeScript, React, Next.js, Vue.js, Tailwind CSS, SCSS, Styled Components, Vite.
+- **Backend:** Node.js, Python, Java, PHP, Express.js, NestJS, FastAPI, Laravel, PostgreSQL, MySQL, MongoDB, OAuth, JWT, REST.
+- **Cloud & DevOps:** GitHub Actions, GitLab CI, Docker.
+- **AI & ML:** PyTorch, LangChain, OpenAI, Anthropic, Hugging Face, AutoGPT.
+
+## Certifications
+- Huawei Developer Expert
+- Generative AI Leader (Google)
+- Google Analytics & Digital Marketing (Google)
+- Software Engineering & JavaScript (TestDome)
+- Scrum Master & Project Management (Various)
+- Certified Cloud Practitioner (AWS)
+
+## Interests
+- Photography, Minimalism, Startups, Coffee, Generative AI, Rust, Web3 Systems.
+
+## Contact Information
+- **Email:** marcelo.devxyz@gmail.com
+- **LinkedIn:** [LinkedIn Profile]
+- **GitHub:** [GitHub Profile]
