@@ -77,7 +77,7 @@ const App: React.FC = () => {
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
                   <div className="relative shrink-0">
                     <div className="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden shadow-sm">
-                      <img src="./images/pfp.jpg" alt="Marcelo Cagara" className="w-full h-full object-cover" />
+                      <img src="/images/pfp.jpg" alt="Marcelo Cagara" className="w-full h-full object-cover" />
                     </div>
                   </div>
 
