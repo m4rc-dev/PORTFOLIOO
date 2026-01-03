@@ -147,15 +147,15 @@ const App: React.FC = () => {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
                     <h2 className="text-[18px] font-bold">Experience</h2>
                   </div>
-                  <div className={`space-y-8 relative before:absolute before:left-[4px] before:top-2 before:bottom-2 before:w-[1px] ${isDarkMode ? 'before:bg-neutral-800' : 'before:bg-neutral-100'}`}>
+                  <div className={`space-y-8 relative before:absolute before:left-[4px] before:top-2 before:bottom-2 before:w-[1px] ${isDarkMode ? 'before:bg-neutral-700' : 'before:bg-neutral-300'}`}>
                     {EXPERIENCE.map((exp, i) => (
                       <div key={i} className="group relative pl-8 cursor-default">
                         <div className={`absolute left-[-1px] top-[6px] w-[11px] h-[11px] rounded-full z-10 transition-all duration-300 border-[2px] 
                           ${i === 0
                             ? (isDarkMode ? 'bg-white border-white' : 'bg-black border-black')
                             : (isDarkMode
-                              ? 'border-neutral-700 bg-transparent group-hover:bg-white group-hover:border-white'
-                              : 'border-neutral-300 bg-transparent group-hover:bg-black group-hover:border-black')
+                              ? 'border-neutral-700 bg-[#121212] group-hover:bg-white group-hover:border-white'
+                              : 'border-neutral-300 bg-white group-hover:bg-black group-hover:border-black')
                           }`}>
                         </div>
                         <div className="flex justify-between items-start gap-4">
