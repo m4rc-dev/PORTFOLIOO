@@ -68,7 +68,7 @@ const App: React.FC = () => {
     <div className={`min-h-screen transition-colors duration-500 ${themeClasses.bg} selection:bg-blue-500/30`}>
       {/* View Content Wrapper - This carries the animation */}
       <div key={currentView} className="animate-page-enter">
-        <div className="max-w-6xl mx-auto px-4 pt-8 pb-24">
+        <div className="max-w-5xl mx-auto px-4 pt-8 pb-24">
 
           {currentView === 'home' && (
             <>
