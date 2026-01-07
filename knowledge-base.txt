@@ -1,41 +1,187 @@
-# Marcelo Cagara - Knowledge Base
+# Marcelo Cagara - Comprehensive Knowledge Base
 
-## Profile
-- **Name:** Marcelo Cagara
-- **Title:** Aspiring Full Stack Developer
+## Profile Overview
+- **Full Name:** Marcelo Cagara
+- **Professional Title:** Full Stack Developer & Software Engineer
 - **Location:** Cebu City, Philippines
-- **Summary:** Aspiring full-stack developer and student, passionate about building impactful solutions with JavaScript, Python, and PHP. Focused on building practical solutions, improving workflows, and exploring AI integration. Seeking an internship opportunity to learn and contribute as a full-stack engineer.
+- **Current Status:** 4th Year BS Information Technology Student at University of Cebu
+- **Summary:** A passionate and driven full-stack developer currently pursuing a degree in Information Technology. Specialized in building impactful web applications using modern technologies like JavaScript, TypeScript, Python, and PHP. Actively focused on creating practical solutions, optimizing developer workflows, and integrating AI capabilities into real-world applications. Looking for internship or entry-level opportunities to contribute as a full-stack software engineer while continuing to learn and grow professionally.
 
-## Professional Experience & Education
-- **Education:** BS Information Technology, University of Cebu (2022 - 2026)
-- **Freelance Developer:** Working on small projects (2025 - Present)
-- **Community Member:** Active in local IT groups and tech organizations (2025 - Present)
-- **Hello World! 👋** - Wrote first line of code at University of Cebu (2022)
+---
 
-## Key Projects
-1. **CodeCred:** Online certifications for programmers. Tech: Next.js, PostgreSQL, Tailwind.
-2. **BASE404:** Online coding bootcamp. Tech: React, Node.js, AWS.
-3. **DIIN.PH:** AI-powered wardrobe assistant. Tech: Python, PyTorch, Vue.
-4. **DYNAMIS Workout Tracker:** AI-powered workout tracker. Tech: React Native, Firebase.
+## Education & Academic Journey
+- **Degree:** Bachelor of Science in Information Technology (BSIT)
+- **Institution:** University of Cebu
+- **Duration:** 2022 - 2026 (Expected Graduation)
+- **Status:** Currently in 4th Year
+- **Notable Milestone:** Wrote first "Hello World!" program at UC in 2022, marking the beginning of the coding journey.
 
-## Technical Skills
-- **Frontend:** JavaScript, TypeScript, React, Next.js, Vue.js, Tailwind CSS, SCSS, Styled Components, Vite.
-- **Backend:** Node.js, Python, Java, PHP, Express.js, NestJS, FastAPI, Laravel, PostgreSQL, MySQL, MongoDB, OAuth, JWT, REST.
-- **Cloud & DevOps:** GitHub Actions, GitLab CI, Docker.
-- **AI & ML:** PyTorch, LangChain, OpenAI, Anthropic, Hugging Face, AutoGPT.
+---
 
-## Certifications
-- Huawei Developer Expert
-- Generative AI Leader (Google)
-- Google Analytics & Digital Marketing (Google)
-- Software Engineering & JavaScript (TestDome)
-- Scrum Master & Project Management (Various)
-- Certified Cloud Practitioner (AWS)
+## Professional Experience
 
-## Interests
-- Photography, Minimalism, Startups, Coffee, Generative AI, Rust, Web3 Systems.
+### Freelance Developer (2025 - Present)
+- Working on various small to medium-scale projects for clients.
+- Gaining hands-on experience in full-stack development.
+- Building custom web applications and solutions tailored to client needs.
+- Technologies used: React, Next.js, Node.js, Firebase, and more.
+
+### Tech Community Member (2025 - Present)
+- Active member in local IT groups and technology organizations in Cebu.
+- Participating in tech meetups, hackathons, and developer events.
+- Contributing to the local tech ecosystem through knowledge sharing.
+
+---
+
+## Featured Projects (Portfolio Highlights)
+
+### 1. CodeCred
+- **Description:** An online platform providing certifications for programmers. Helps developers validate their skills through standardized assessments.
+- **Website:** codecred.dev
+- **Year:** 2024
+- **Technologies Used:** Next.js, PostgreSQL, Tailwind CSS
+- **Key Features:** Skill assessments, certificate generation, developer profiles
+
+### 2. BASE404
+- **Description:** An online coding bootcamp platform designed to teach programming and software development skills to developers.
+- **Website:** base-404.com
+- **Year:** 2023
+- **Technologies Used:** React, Node.js, AWS (Amazon Web Services)
+- **Key Features:** Interactive coding lessons, progress tracking, cloud-hosted infrastructure
+
+### 3. DIIN.PH
+- **Description:** An AI-powered wardrobe assistant that helps users organize and style their clothing using machine learning algorithms.
+- **Website:** diin.ph
+- **Year:** 2024
+- **Technologies Used:** Python, PyTorch, Vue.js
+- **Key Features:** AI clothing analysis, style recommendations, wardrobe management
+
+### 4. DYNAMIS Workout Tracker
+- **Description:** An AI-powered fitness and workout tracking application that provides personalized exercise recommendations and progress monitoring.
+- **Website:** dynamis-app.online
+- **Year:** 2023
+- **Technologies Used:** React Native, Firebase
+- **Key Features:** AI workout recommendations, progress tracking, mobile-first design
+
+---
+
+## Technical Skills (Comprehensive)
+
+### Frontend Development
+- **Languages:** JavaScript (ES6+), TypeScript
+- **Frameworks & Libraries:** React, Next.js, Vue.js
+- **Styling:** Tailwind CSS, SCSS/Sass, Styled Components, CSS-in-JS
+- **Build Tools:** Vite, Webpack
+- **Code Quality:** ESLint, Prettier
+
+### Backend Development
+- **Languages:** Node.js, Python, Java, PHP
+- **Frameworks:** Express.js, NestJS (Node.js), FastAPI (Python), Laravel (PHP)
+- **Databases:** PostgreSQL (relational), MySQL (relational), MongoDB (NoSQL)
+- **APIs:** REST API design, GraphQL (familiar)
+- **Authentication:** OAuth 2.0, JWT (JSON Web Tokens), Session-based auth
+
+### Cloud & DevOps
+- **CI/CD:** GitHub Actions, GitLab CI/CD pipelines
+- **Containerization:** Docker
+- **Cloud Platforms:** AWS (Amazon Web Services), familiar with Vercel, Railway
+
+### AI & Machine Learning
+- **Frameworks:** PyTorch (deep learning)
+- **AI Integration:** LangChain (LLM orchestration), OpenAI API, Anthropic Claude API
+- **ML Tools:** Hugging Face Transformers, AutoGPT
+- **Applications:** Natural language processing, AI-powered features, chatbot development
+
+### Developer Tools & Workflow
+- **Version Control:** Git, GitHub, GitLab
+- **IDEs & Editors:** Visual Studio Code, JetBrains IntelliJ IDEA, PyCharm
+- **Collaboration:** Familiar with Agile/Scrum methodologies
+
+---
+
+## Certifications & Credentials (Complete List)
+
+### AI & Cloud
+- **Generative AI Certified Professional** - Oracle
+- **Generative AI Leader** - Google
+- **Certified Cloud Practitioner** - Amazon Web Services (AWS)
+
+### Development
+- **Huawei Developer Expert** - Huawei
+- **Software Engineering** - TestDome
+- **JavaScript** - TestDome
+- **PHP** - TestDome
+- **Python** - TestDome
+- **SQL** - TestDome
+
+### Digital Marketing & Analytics
+- **Google Analytics** - Google
+- **Digital Marketing** - Google
+
+### Cybersecurity & Monitoring
+- **Cybersecurity Certificate** - Trend Micro
+- **Monitoring Kubernetes** - Datadog
+
+### Project Management & Agile
+- **Scrum Master** - TestDome
+- **Scrum Associate** - International Scrum Institute™
+- **Certified Kanban Associate** - International Scrum Institute™
+- **Lean Six Sigma White Belt** - Management & Strategy Institute
+- **Project Management Certified** - Management & Strategy Institute
+- **Diploma in Project Management** - Alison
+
+---
+
+## Professional Memberships
+- **Analytics & Artificial Intelligence Association of the Philippines (AAP)** - Active Member
+- **Philippine Software Industry Association (PSIA)** - Member
+
+---
+
+## Personal Interests & Passions
+- **Photography:** Capturing moments and visual storytelling
+- **Minimalism:** Embracing simplicity in design and lifestyle
+- **Startups:** Interested in entrepreneurship and tech startups
+- **Coffee:** Coffee enthusiast/aficionado
+- **Generative AI:** Exploring the latest in AI and machine learning
+- **Rust Programming:** Learning systems programming with Rust
+- **Web3 Systems:** Interested in blockchain and decentralized technologies
+
+---
 
 ## Contact Information
 - **Email:** marcelo.devxyz@gmail.com
-- **LinkedIn:** [LinkedIn Profile]
-- **GitHub:** [GitHub Profile]
+- **LinkedIn:** linkedin.com/in/marcelocagara (Connect with me!)
+- **GitHub:** github.com/marcelocagara (Check out my projects!)
+- **Portfolio:** This website showcases my work and skills
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### What services can Marcelo provide?
+Marcelo can help with full-stack web development, including frontend (React, Next.js, Vue), backend (Node.js, Python, PHP), database design (PostgreSQL, MongoDB), and AI integration projects.
+
+### Is Marcelo available for freelance work?
+Yes! Marcelo is currently taking on freelance projects while completing his studies. Reach out via email for project inquiries.
+
+### What is Marcelo's preferred tech stack?
+Marcelo prefers working with React/Next.js for frontend, Node.js/Express for backend, PostgreSQL for databases, and integrating AI capabilities where beneficial.
+
+### Does Marcelo have experience with AI/ML?
+Yes, Marcelo has hands-on experience with PyTorch, LangChain, OpenAI API, and Anthropic API. He specializes in integrating AI features into web applications.
+
+### What type of internship is Marcelo looking for?
+Marcelo is seeking a full-stack development internship where he can contribute to real projects, learn from experienced engineers, and grow his technical skills in a professional environment.
+
+### Where is Marcelo based?
+Marcelo is based in Cebu City, Philippines, and is open to remote work opportunities as well as local positions.
+
+---
+
+## Quick Facts
+- 📍 Based in Cebu City, Philippines
+- 🎓 4th Year BSIT Student at University of Cebu
+- 💼 Open to internship and freelance opportunities
+- 🚀 Passionate about AI, web development, and startups
+
