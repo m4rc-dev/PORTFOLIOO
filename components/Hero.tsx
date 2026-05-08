@@ -28,6 +28,15 @@ const Hero: React.FC = () => {
                 </svg>
               </div>
             </a>
+            
+            <a href="/resume.pdf" download className="group flex items-center gap-2 text-sm font-medium">
+              <span>Download CV</span>
+              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 2C7.77614 2 8 2.22386 8 2.5V8.29289L10.1464 6.14645C10.3417 5.95118 10.6583 5.95118 10.8536 6.14645C11.0488 6.34171 11.0488 6.65829 10.8536 6.85355L7.85355 9.85355C7.65829 10.0488 7.34171 10.0488 7.14645 9.85355L4.14645 6.85355C3.95118 6.65829 3.95118 6.34171 4.14645 6.14645C4.34171 5.95118 4.65829 5.95118 4.85355 6.14645L7 8.29289V2.5C7 2.22386 7.22386 2 7.5 2ZM2.5 12C2.22386 12 2 12.2239 2 12.5C2 12.7761 2.22386 13 2.5 13H12.5C12.7761 13 13 12.7761 13 12.5C13 12.2239 12.7761 12 12.5 12H2.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+                </svg>
+              </div>
+            </a>
           </div>
         </div>
       </div>

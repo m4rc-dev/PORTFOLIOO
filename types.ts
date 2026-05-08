@@ -5,8 +5,8 @@ export interface Project {
   description: string;
   link: string;
   url: string;
-  // Added properties to resolve missing field errors in ProjectCard.tsx
-  image: string;
+  // Image is optional
+  image?: string;
   year: string;
   tags: string[];
 }

@@ -21,6 +21,7 @@ const Navigation: React.FC = () => {
         <div className="flex gap-8 md:gap-12 text-sm font-medium text-neutral-400">
           <a href="#work" className="hover:text-white transition-colors">Work</a>
           <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="/resume.pdf" download className="hover:text-white transition-colors">CV</a>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div>
       </div>

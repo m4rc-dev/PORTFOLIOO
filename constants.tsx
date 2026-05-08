@@ -4,43 +4,43 @@ import { Project, Experience, SkillGroup, Certification } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'CodeCred',
-    description: 'Online certifications for programmers',
-    link: 'codecred.dev',
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-    year: '2024',
-    tags: ['Next.js', 'PostgreSQL', 'Tailwind']
+    title: 'Authentiq',
+    description: 'Digital asset verification with AI',
+    link: 'https://authentiqq.vercel.app/',
+    url: 'https://authentiqq.vercel.app/',
+
+    year: '2025',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS']
   },
   {
     id: '2',
-    title: 'BASE404',
-    description: 'Online coding bootcamp',
-    link: 'base-404.com',
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=800&q=80',
-    year: '2023',
-    tags: ['React', 'Node.js', 'AWS']
+    title: 'SkillPath',
+    description: 'Personalized learning and roadmap tracker.',
+    link: 'https://skill-pathh.vercel.app/',
+    url: 'https://skill-pathh.vercel.app/',
+
+    year: '2025',
+    tags: ['React', 'TypeScript', 'Capacitor']
   },
   {
     id: '3',
-    title: 'DIIN.PH',
-    description: 'AI-powered wardrobe assistant',
-    link: 'diin.ph',
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80',
-    year: '2024',
-    tags: ['Python', 'PyTorch', 'Vue']
+    title: 'HabitWork',
+    description: 'Habit tracker with visual analytics.',
+    link: 'https://habit-work.vercel.app/',
+    url: 'https://habit-work.vercel.app/',
+
+    year: '2025',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Recharts']
   },
   {
     id: '4',
-    title: 'DYNAMIS Workout Tracker',
-    description: 'AI-powered workout tracker',
-    link: 'dynamis-app.online',
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
-    year: '2023',
-    tags: ['React Native', 'Firebase']
+    title: 'Weather Dashboard',
+    description: 'Real-time interactive weather dashboard.',
+    link: 'https://weather-dashboarddd.vercel.app/',
+    url: 'https://weather-dashboarddd.vercel.app/',
+
+    year: '2025',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Recharts', 'Radix UI']
   }
 ];
 
@@ -52,6 +52,11 @@ export const EXPERIENCE: Experience[] = [
     status: 'latest'
   },
   {
+    role: 'IT Intern',
+    company: 'Ongoing Internship',
+    period: '2026',
+  },
+  {
     role: 'Freelance Developer',
     company: 'Small Projects',
     period: '2025 - Present'
@@ -60,6 +65,16 @@ export const EXPERIENCE: Experience[] = [
     role: 'Tech Community Member',
     company: 'Local IT Groups & Orgs',
     period: '2025 - Present'
+  },
+  {
+    role: 'Open Source Contributor',
+    company: 'GitHub',
+    period: '2023 - Present'
+  },
+  {
+    role: 'Personal Projects',
+    company: 'Self-driven Lab',
+    period: '2024 - Present'
   },
   {
     role: 'Hello World! 👋',
@@ -120,9 +135,10 @@ export const MEMBERSHIPS = [
 ];
 
 export const GALLERY_IMAGES = [
-  'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1540317580114-ed684c054c9d?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1524178232327-1fcb16223a63?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80'
+  'public/images/img1.jpg',
+  'public/images/img2.jpg',
+  'public/images/img3.jpg',
+  'public/images/img4.jpg',
+  'public/images/img5.jpg',
+  'public/images/img6.jpg',
 ];

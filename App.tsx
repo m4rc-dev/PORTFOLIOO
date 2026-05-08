@@ -119,10 +119,6 @@ const App: React.FC = () => {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                         Send Email
                       </a>
-                      <div className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 border ${isDarkMode ? 'bg-blue-500/10 border-blue-500/20 text-blue-400' : 'bg-blue-50 border-blue-100 text-blue-600'}`}>
-                        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-                        Open to Intern
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -219,7 +215,7 @@ const App: React.FC = () => {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {PROJECTS.slice(0, 4).map(project => (
-                      <div key={project.id} className={`p-5 border rounded-2xl transition-all cursor-pointer group flex flex-col justify-between h-full ${isDarkMode ? 'border-neutral-700 hover:bg-neutral-800' : 'border-neutral-200 hover:bg-neutral-50'}`}>
+                      <a href={project.url} key={project.id} target="_blank" rel="noopener noreferrer" className={`p-5 border rounded-2xl transition-all cursor-pointer group flex flex-col justify-between h-full ${isDarkMode ? 'border-neutral-700 hover:bg-neutral-800' : 'border-neutral-200 hover:bg-neutral-50'}`}>
                         <div>
                           <h4 className={`font-bold text-[16px] mb-1 transition-colors ${themeClasses.textHighlight}`}>{project.title}</h4>
                           <p className={`text-[13px] mb-4 leading-snug ${themeClasses.textMuted}`}>{project.description}</p>
@@ -227,7 +223,7 @@ const App: React.FC = () => {
                         <div className={`${isDarkMode ? 'bg-neutral-800 text-neutral-400 border-neutral-700' : 'bg-[#f3f4f6] text-neutral-600 border-neutral-200'} px-3 py-1.5 rounded-lg font-mono text-[11px] inline-block self-start border`}>
                           {project.link}
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -236,20 +232,23 @@ const App: React.FC = () => {
                   <div className={`bento-card flex flex-col h-full ${themeClasses.card}`}>
                     <div className="flex items-center justify-between mb-8 opacity-80">
                       <div className="flex items-center gap-2.5">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                        <h2 className="text-[18px] font-bold">Recent Certifications</h2>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+                        <h2 className="text-[18px] font-bold">Current Focus</h2>
                       </div>
-                      <button onClick={() => handleNavigate('certifications')} className={`text-[13px] font-bold flex items-center gap-1 transition-colors text-right leading-tight ${themeClasses.textMuted} ${themeClasses.hoverText}`}>
-                        View<br />All <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" className="inline-block ml-1"><path d="M9 18l6-6-6-6" /></svg>
-                      </button>
                     </div>
                     <div className="space-y-4 flex-1">
-                      {CERTIFICATIONS.slice(0, 3).map((cert, i) => (
-                        <div key={i} className={`p-5 rounded-xl transition-colors cursor-pointer group h-[calc(33.33%-0.75rem)] flex flex-col justify-center ${themeClasses.itemBg}`}>
-                          <h4 className={`font-bold text-[14px] mb-0.5 transition-colors ${themeClasses.textHighlight}`}>{cert.title}</h4>
-                          <p className="text-[12px] text-neutral-400 font-medium">{cert.issuer}</p>
-                        </div>
-                      ))}
+                      <div className={`p-5 rounded-xl transition-colors group h-[calc(33.33%-0.75rem)] flex flex-col justify-center ${themeClasses.itemBg}`}>
+                        <h4 className={`font-bold text-[14px] mb-0.5 transition-colors ${themeClasses.textHighlight}`}>AI & Machine Learning</h4>
+                        <p className="text-[12px] text-neutral-400 font-medium">Exploring Generative AI & LLMs</p>
+                      </div>
+                      <div className={`p-5 rounded-xl transition-colors group h-[calc(33.33%-0.75rem)] flex flex-col justify-center ${themeClasses.itemBg}`}>
+                        <h4 className={`font-bold text-[14px] mb-0.5 transition-colors ${themeClasses.textHighlight}`}>Full-stack Excellence</h4>
+                        <p className="text-[12px] text-neutral-400 font-medium">Mastering Next.js & TypeScript</p>
+                      </div>
+                      <div className={`p-5 rounded-xl transition-colors group h-[calc(33.33%-0.75rem)] flex flex-col justify-center ${themeClasses.itemBg}`}>
+                        <h4 className={`font-bold text-[14px] mb-0.5 transition-colors ${themeClasses.textHighlight}`}>System Design</h4>
+                        <p className="text-[12px] text-neutral-400 font-medium">Learning Scalable Architectures</p>
+                      </div>
                     </div>
                   </div>
 
@@ -261,23 +260,23 @@ const App: React.FC = () => {
                           <h2 className="text-[18px]">Social Links</h2>
                         </div>
                         <div className="space-y-4 flex-1">
-                          <a href="#" className={`flex items-center gap-4 p-5 border rounded-xl hover:shadow-md transition-all group h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700' : 'bg-white border-neutral-200'}`}>
+                          <a href="https://www.linkedin.com/in/marcelo-jr-cagara-3a5254383/" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-4 p-5 border rounded-xl hover:shadow-md transition-all group h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700' : 'bg-white border-neutral-200'}`}>
                             <div className={`w-8 h-8 flex items-center justify-center transition-colors ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
                               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                             </div>
                             <span className="font-bold text-[14px]">LinkedIn</span>
                           </a>
-                          <a href="#" className={`flex items-center gap-4 p-5 border rounded-xl hover:shadow-md transition-all group h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700' : 'bg-white border-neutral-200'}`}>
+                          <a href="https://github.com/m4rc-dev" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-4 p-5 border rounded-xl hover:shadow-md transition-all group h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700' : 'bg-white border-neutral-200'}`}>
                             <div className={`w-8 h-8 flex items-center justify-center transition-colors ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
                               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
                             </div>
                             <span className="font-bold text-[14px]">GitHub</span>
                           </a>
-                          <a href="#" className={`flex items-center gap-4 p-5 border rounded-xl hover:shadow-md transition-all group h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700' : 'bg-white border-neutral-200'}`}>
+                          <a href="https://www.facebook.com/marcelo.cagara" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-4 p-5 border rounded-xl hover:shadow-md transition-all group h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700' : 'bg-white border-neutral-200'}`}>
                             <div className={`w-8 h-8 flex items-center justify-center transition-colors ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
                               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
                             </div>
-                            <span className="font-bold text-[14px]">Instagram</span>
+                            <span className="font-bold text-[14px]">Facebook</span>
                           </a>
                         </div>
                       </div>
@@ -299,16 +298,20 @@ const App: React.FC = () => {
                           <p className="text-[13px] font-bold leading-tight">BSIT at University of Cebu</p>
                         </div>
 
-                        <button className={`w-full p-5 border rounded-2xl flex justify-between items-center group transition-all h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700 hover:shadow-white/5 shadow-md' : 'bg-white border-neutral-200 hover:bg-neutral-50 shadow-md'}`}>
+                        <a 
+                          href="/resume.pdf" 
+                          download="Marcelo_CV.pdf"
+                          className={`w-full p-5 border rounded-2xl flex justify-between items-center group transition-all h-[calc(33.33%-0.75rem)] ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-700 hover:shadow-white/5 shadow-md' : 'bg-white border-neutral-200 hover:bg-neutral-50 shadow-md'}`}
+                        >
                           <div className="flex items-center gap-3">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-neutral-500"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><polyline points="13 2 13 9 20 9" /></svg>
                             <div className="text-left">
                               <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest leading-none mb-1">Resume</p>
-                              <p className="text-[15px] font-bold">Download CV</p>
+                              <p className="text-[15px] font-bold text-current">Download CV</p>
                             </div>
                           </div>
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className={`group-hover:translate-y-1 transition-transform ${isDarkMode ? 'text-neutral-600' : 'text-neutral-300'}`}><path d="M7 10l5 5 5-5M12 15V3" /></svg>
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -371,17 +374,14 @@ const App: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {PROJECTS.map(project => (
                   <div key={project.id} className={`group flex flex-col rounded-3xl overflow-hidden border transition-all ${isDarkMode ? 'border-neutral-800 bg-[#121212]' : 'border-neutral-100 bg-white shadow-sm'}`}>
-                    <div className="aspect-[16/10] overflow-hidden relative">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-widest border border-white/10">{project.year}</span>
-                      </div>
-                    </div>
                     <div className="p-8 flex-1 flex flex-col">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map(tag => (
-                          <span key={tag} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border ${isDarkMode ? 'border-neutral-700 text-neutral-400' : 'border-neutral-200 text-neutral-500'}`}>{tag}</span>
-                        ))}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map(tag => (
+                            <span key={tag} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border ${isDarkMode ? 'border-neutral-700 text-neutral-400' : 'border-neutral-200 text-neutral-500'}`}>{tag}</span>
+                          ))}
+                        </div>
+                        <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md border ${isDarkMode ? 'bg-neutral-800 border-neutral-700 text-neutral-400' : 'bg-neutral-100 border-neutral-200 text-neutral-500'}`}>{project.year}</span>
                       </div>
                       <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                       <p className={`text-[14px] leading-relaxed mb-8 flex-1 ${themeClasses.textMuted}`}>{project.description}</p>
