@@ -98,7 +98,7 @@ export const SKILLS: SkillGroup[] = [
   },
   {
     category: 'AI & Machine Learning',
-    skills: ['PyTorch', 'LangChain', 'OpenAI', 'Anthropic', 'Hugging Face', 'AutoGPT']
+    skills: ['Generative AI', 'Large Language Models (LLMs)', 'OpenAI', 'Anthropic', 'LangChain', 'Hugging Face']
   },
 
   {
