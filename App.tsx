@@ -19,7 +19,20 @@ const App: React.FC = () => {
     }
   };
 
+  const [showCounter, setShowCounter] = useState(false);
+
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Press Ctrl + Shift + V to toggle visitor counter
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'v') {
+        setShowCounter(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -341,7 +354,14 @@ const App: React.FC = () => {
                 </section>
               </div>
 
-              <footer className="mt-16 text-center py-12">
+              <footer className="mt-16 text-center py-12 flex flex-col items-center gap-4">
+                {showCounter && (
+                  <div className={`px-4 py-2 border rounded-full flex items-center gap-2 animate-page-enter ${isDarkMode ? 'bg-[#1a1a1a] border-neutral-800' : 'bg-white border-neutral-100'}`}>
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=marcelo-portfolio&style=0006&nbdigits=5&type=page&initCount=0" title="Free Website Hit Counter" alt="Free Website Hit Counter" className="h-4 opacity-70 invert dark:invert-0" />
+                    <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Visitors</span>
+                  </div>
+                )}
                 <p className="text-neutral-400 text-[11px] font-bold uppercase tracking-widest">© 2025 Marcelo Cagara. All rights reserved.</p>
               </footer>
             </>
