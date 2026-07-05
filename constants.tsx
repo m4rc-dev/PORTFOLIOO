@@ -71,7 +71,7 @@ export const EXPERIENCE: Experience[] = [
   {
     role: 'Personal Projects',
     company: 'Self-driven Lab',
-    period: '2024 - Present'
+    period: '2024'
   },
   {
     role: 'Hello World! 👋',
@@ -95,7 +95,7 @@ export const SKILLS: SkillGroup[] = [
   },
   {
     category: 'AI & Machine Learning',
-    skills: ['Generative AI', 'Large Language Models (LLMs)', 'OpenAI', 'Anthropic', 'LangChain', 'Hugging Face']
+    skills: ['Generative AI', 'Large Language Models (LLMs)', 'OpenAI', 'Anthropic', 'LangChain', 'Hugging Face', 'n8n']
   },
 
   {

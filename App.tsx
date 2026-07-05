@@ -3,6 +3,140 @@ import { PROJECTS, EXPERIENCE, SKILLS, CERTIFICATIONS, GALLERY_IMAGES } from './
 
 type AppView = 'home' | 'tech-stack' | 'projects' | 'certifications';
 
+interface ChatMessage {
+  sender: 'user' | 'assistant';
+  text: string;
+  options?: string[];
+}
+
+const getAssistantResponse = (userInput: string): ChatMessage => {
+  const query = userInput.toLowerCase();
+  
+  const mainMenuOptions = [
+    "📂 Show me your projects",
+    "🛠️ What is your tech stack?",
+    "💼 View your experience",
+    "🏆 Check your certifications",
+    "✉️ How can I contact you?"
+  ];
+
+  if (query.includes('project') || query.includes('portfolio') || query.includes('app') || query.includes('📂')) {
+    return {
+      sender: 'assistant',
+      text: "Here are some of my key projects:\n\n• **Authentiq**: Digital asset verification with AI (React, TS, Vite, Tailwind CSS).\n• **SkillPath**: Personalized learning and roadmap tracker (React, TS, Capacitor).\n• **HabitWork**: Habit tracker with visual analytics (React, TS, Tailwind, Recharts).\n• **Weather Dashboard**: Real-time interactive weather dashboard (Next.js, React, Tailwind, Recharts).\n\nWould you like to navigate to the projects page, or check out my tech stack?",
+      options: [
+        "🚀 Go to Projects page",
+        "🛠️ What is your tech stack?",
+        "↩️ Back to main menu"
+      ]
+    };
+  }
+  
+  if (query.includes('skill') || query.includes('stack') || query.includes('tech') || query.includes('language') || query.includes('code') || query.includes('tools') || query.includes('🛠️') || query.includes('n8n')) {
+    return {
+      sender: 'assistant',
+      text: "I build full-stack web and mobile applications. Here's a breakdown of my tools:\n\n• **Frontend**: JavaScript, TypeScript, React, Next.js, Vue.js, Tailwind CSS\n• **Backend**: Node.js, Python, Java, PHP, Laravel, Express, NestJS\n• **Databases**: PostgreSQL, MySQL, MongoDB\n• **AI & Automation**: Generative AI, LLMs, OpenAI, Anthropic, LangChain, n8n\n• **DevOps & Tools**: Git, GitHub, Docker, CI/CD",
+      options: [
+        "📂 Show me your projects",
+        "🚀 Go to Tech Stack page",
+        "↩️ Back to main menu"
+      ]
+    };
+  }
+  
+  if (query.includes('experience') || query.includes('job') || query.includes('work') || query.includes('company') || query.includes('leuterio') || query.includes('💼')) {
+    return {
+      sender: 'assistant',
+      text: "My professional journey:\n\n• **Full-Stack Developer** @ Leuterio Realty and Brokerage (2026 - Present)\n• **Full-Stack Developer Intern** @ Leuterio Realty and Brokerage (2025 - 2026)\n• **Freelance Developer** @ Small Projects (2026 - Present)\n\nI was absorbed as a full-time developer after my internship, focusing on building high-impact applications.",
+      options: [
+        "📂 Show me your projects",
+        "✉️ How can I contact you?",
+        "↩️ Back to main menu"
+      ]
+    };
+  }
+
+  if (query.includes('cert') || query.includes('credential') || query.includes('fundamentals') || query.includes('🏆') || query.includes('tesda')) {
+    return {
+      sender: 'assistant',
+      text: "I hold 20 certifications across AI, Cloud, Engineering, and Project Management, including:\n\n• **Microsoft Artificial Intelligence Course: Azure AI Fundamentals** (TESDA, 2026)\n• **Generative AI Leader** (Google)\n• **Huawei Developer Expert** (Huawei)\n• **Certified Cloud Practitioner** (AWS)\n• **Generative AI Certified Professional** (Oracle)\n\nMost are verifiable via standard platforms (TestDome, Skillshop, etc.).",
+      options: [
+        "🏆 Go to Certifications page",
+        "↩️ Back to main menu"
+      ]
+    };
+  }
+
+  if (query.includes('contact') || query.includes('email') || query.includes('linkedin') || query.includes('hire') || query.includes('freelance') || query.includes('collab') || query.includes('✉️')) {
+    return {
+      sender: 'assistant',
+      text: "Let's connect! You can reach me via the following channels:\n\n• 📧 Email: [marcelo.devxyz@gmail.com](mailto:marcelo.devxyz@gmail.com)\n• 💼 LinkedIn: [Marcelo Jr. Cagara](https://www.linkedin.com/in/marcelo-jr-cagara-3a5254383/)\n• 🐙 GitHub: [m4rc-dev](https://github.com/m4rc-dev)\n\nI am always open to freelance, collabs, and full-time inquiries.",
+      options: [
+        "↩️ Back to main menu"
+      ]
+    };
+  }
+
+  if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('yo')) {
+    return {
+      sender: 'assistant',
+      text: "Hello! 👋 I'm Marcelo's interactive virtual assistant. How can I help you today?",
+      options: mainMenuOptions
+    };
+  }
+
+  return {
+    sender: 'assistant',
+    text: "I didn't quite catch that. Try asking about my **projects**, **skills**, **experience**, or **how to contact me**. Or simply choose an option below:",
+    options: mainMenuOptions
+  };
+};
+
+const renderMessageText = (text: string) => {
+  return text.split('\n').map((line, lineIdx) => {
+    const isBullet = line.startsWith('• ');
+    const content = isBullet ? line.substring(2) : line;
+
+    const parts = content.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+    const parsedLine = parts.map((part, partIdx) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={partIdx} className="font-bold text-ink">{part.slice(2, -2)}</strong>;
+      }
+      
+      const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
+      if (linkMatch) {
+        return (
+          <a
+            key={partIdx}
+            href={linkMatch[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink border-b border-ink/25 hover:border-ink transition-colors no-underline font-medium"
+          >
+            {linkMatch[1]}
+          </a>
+        );
+      }
+      return part;
+    });
+
+    if (isBullet) {
+      return (
+        <div key={lineIdx} className="flex items-start gap-1.5 my-1">
+          <span className="text-gray-400 select-none">•</span>
+          <span>{parsedLine}</span>
+        </div>
+      );
+    }
+
+    return (
+      <p key={lineIdx} className={lineIdx > 0 ? "mt-2" : ""}>
+        {parsedLine}
+      </p>
+    );
+  });
+};
+
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -16,6 +150,86 @@ const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showCounter, setShowCounter] = useState(false);
+
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const chatMessagesEndRef = useRef<HTMLDivElement>(null);
+  
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
+    {
+      sender: 'assistant',
+      text: "Hi! I'm Marcelo's AI assistant. Feel free to ask me about his projects, skills, or experience!",
+      options: [
+        "📂 Show me your projects",
+        "🛠️ What is your tech stack?",
+        "💼 View your experience",
+        "🏆 Check your certifications",
+        "✉️ How can I contact you?"
+      ]
+    }
+  ]);
+
+  const handleSendMessage = (text: string) => {
+    if (!text.trim()) return;
+
+    // Check if it's navigation action
+    if (text === "🚀 Go to Projects page") {
+      handleNavigate('projects');
+      setIsChatOpen(false);
+      return;
+    }
+    if (text === "🚀 Go to Tech Stack page") {
+      handleNavigate('tech-stack');
+      setIsChatOpen(false);
+      return;
+    }
+    if (text === "🏆 Go to Certifications page") {
+      handleNavigate('certifications');
+      setIsChatOpen(false);
+      return;
+    }
+    if (text === "↩️ Back to main menu") {
+      setChatMessages(prev => [...prev, { sender: 'user', text }]);
+      setIsTyping(true);
+      setTimeout(() => {
+        setChatMessages(prev => [
+          ...prev,
+          {
+            sender: 'assistant',
+            text: "Main menu. Select a category below or ask a question:",
+            options: [
+              "📂 Show me your projects",
+              "🛠️ What is your tech stack?",
+              "💼 View your experience",
+              "🏆 Check your certifications",
+              "✉️ How can I contact you?"
+            ]
+          }
+        ]);
+        setIsTyping(false);
+      }, 500);
+      return;
+    }
+
+    // Add user message
+    setChatMessages(prev => [...prev, { sender: 'user', text }]);
+    setChatInput('');
+    setIsTyping(true);
+
+    // Simulate response delay
+    setTimeout(() => {
+      const response = getAssistantResponse(text);
+      setChatMessages(prev => [...prev, response]);
+      setIsTyping(false);
+    }, 700);
+  };
+
+  useEffect(() => {
+    if (isChatOpen) {
+      chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [chatMessages, isTyping, isChatOpen]);
 
   const toggleDarkMode = (e: React.MouseEvent) => {
     const newMode = !isDarkMode;
@@ -397,7 +611,7 @@ const App: React.FC = () => {
                     Marcelo Cagara
                   </h1>
                   <div className="text-[15px] leading-relaxed text-gray-500 space-y-2 mb-4 sm:mb-5">
-                    <p>I'm a full-stack developer. I build modern web &amp; mobile apps, and these days I'm focused on generative AI.</p>
+                    <p>I'm a full-stack developer. I build modern web &amp; mobile apps, and these days I'm focused on generative AI &amp; AI automation.</p>
                     <p>I enjoy turning rough ideas into things people actually use.</p>
                   </div>
                   {/* Inline social links */}
@@ -417,10 +631,10 @@ const App: React.FC = () => {
               <div className="border-t border-gray-200 mb-12 sm:mb-14 animate-fade-up" style={{ animationDelay: '120ms' }}>
                 <div className="grid grid-cols-2 sm:grid-cols-4">
                   {[
-                    { value: '4+',   label: 'Projects',       onClick: () => handleNavigate('projects') },
-                    { value: '3+',   label: 'Years coding',   onClick: null },
-                    { value: '19',   label: 'Certifications', onClick: () => handleNavigate('certifications') },
-                    { value: '2026', label: 'Expected grad.', onClick: null },
+                    { value: '4+',   label: 'Projects',     onClick: () => handleNavigate('projects') },
+                    { value: '3+',   label: 'Years coding', onClick: null },
+                    { value: '30+',  label: 'Skills',       onClick: () => handleNavigate('tech-stack') },
+                    { value: 'Open', label: 'To Collab',    onClick: null },
                   ].map(({ value, label, onClick }, i) => (
                     <div
                       key={label}
@@ -461,7 +675,7 @@ const App: React.FC = () => {
                 <div className="text-[15px] leading-relaxed text-gray-500 space-y-3">
                   <p>Full-stack developer passionate about building impactful solutions with JavaScript, Python, and PHP. I enjoy crafting modern web and mobile applications that are fast, clean, and actually useful.</p>
                   <p>I've built and shipped real projects focused on practical solutions — improving workflows and understanding how technology supports real users and small teams.</p>
-                  <p>Currently exploring AI and integrating modern tools into user-centric applications. Always looking for opportunities to collaborate on meaningful products and continue growing as an engineer.</p>
+                  <p>Currently exploring AI automation (like building custom n8n workflows) and integrating modern tools into user-centric applications. Always looking for opportunities to collaborate on meaningful products and continue growing as an engineer.</p>
                 </div>
               </section>
 
@@ -732,6 +946,117 @@ const App: React.FC = () => {
 
         </div>
       </main>
+
+      {/* ══════════════════════════════════════════════════
+          AI CHATBOT ASSISTANT (Interactive Client-side Option 1)
+      ══════════════════════════════════════════════════ */}
+      <div className="fixed bottom-6 right-6 z-50 font-sans">
+        {/* Toggle Button */}
+        {!isChatOpen && (
+          <button
+            onClick={() => setIsChatOpen(true)}
+            className="flex items-center gap-2 py-2 px-4 bg-background text-ink border border-gray-300 dark:border-gray-700 hover:border-ink transition-colors font-mono text-[10px] uppercase tracking-wider shadow-soft hover:bg-gray-50 dark:hover:bg-zinc-950 cursor-pointer"
+          >
+            <span className="w-1.5 h-1.5 bg-ink dark:bg-white rounded-none animate-pulse mr-1"></span>
+            assistant
+          </button>
+        )}
+
+        {/* Chat Window */}
+        {isChatOpen && (
+          <div className="absolute bottom-0 right-0 w-96 max-w-[calc(100vw-48px)] h-[500px] bg-background border border-ink/10 dark:border-gray-800 rounded-none shadow-soft flex flex-col overflow-hidden animate-fade-up">
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-zinc-900/50 border-b border-gray-250 dark:border-gray-850">
+              <div className="flex items-center gap-2">
+                <span className="font-pixel text-[11px] uppercase tracking-widest text-ink font-semibold">assistant.sh</span>
+                <span className="font-mono text-[9px] text-gray-400 uppercase tracking-wider flex items-center gap-1">
+                  <span className="w-1 h-1 bg-ink dark:bg-white rounded-none"></span>
+                  active
+                </span>
+              </div>
+              <button
+                onClick={() => setIsChatOpen(false)}
+                className="text-gray-400 hover:text-ink font-mono text-xs border-none bg-transparent cursor-pointer p-1 transition-colors"
+              >
+                [close]
+              </button>
+            </div>
+
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto p-4 bg-background flex flex-col gap-4 scroll-smooth">
+              {chatMessages.map((msg, i) => (
+                <div key={i} className={`flex flex-col w-full ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}>
+                  {/* Sender Tag */}
+                  <span className="font-mono text-[8px] uppercase tracking-widest text-gray-400 mb-1">
+                    {msg.sender === 'user' ? 'visitor' : 'marcelo_ai'}
+                  </span>
+                  
+                  {/* Message Bubble/Block */}
+                  <div className={`w-full max-w-[90%] px-3.5 py-2.5 text-[13px] leading-relaxed border-l-2 ${
+                    msg.sender === 'user'
+                      ? 'border-gray-400 dark:border-gray-650 bg-gray-50 dark:bg-zinc-900/30 text-ink'
+                      : 'border-ink bg-transparent text-ink'
+                  }`}>
+                    {msg.sender === 'assistant' ? renderMessageText(msg.text) : msg.text}
+                  </div>
+                  
+                  {/* Predefined Quick Replies */}
+                  {msg.sender === 'assistant' && msg.options && (
+                    <div className="flex flex-col items-start gap-1 mt-3 w-full">
+                      {msg.options.map(opt => (
+                        <button
+                          key={opt}
+                          onClick={() => handleSendMessage(opt)}
+                          className="w-full text-left py-2 px-3 border border-gray-300 dark:border-gray-800 hover:border-ink font-mono text-[9.5px] uppercase tracking-wider text-gray-500 hover:text-ink transition-colors cursor-pointer bg-background"
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Typing Indicator */}
+              {isTyping && (
+                <div className="self-start w-full max-w-[90%] border-l-2 border-ink bg-transparent px-3.5 py-3">
+                  <div className="flex gap-1.5 items-center">
+                    <span className="w-1 h-1 bg-gray-400 rounded-none animate-bounce" style={{ animationDelay: '0s' }}></span>
+                    <span className="w-1 h-1 bg-gray-400 rounded-none animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                    <span className="w-1 h-1 bg-gray-400 rounded-none animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+                  </div>
+                </div>
+              )}
+              
+              <div ref={chatMessagesEndRef} />
+            </div>
+
+            {/* Input Bar */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSendMessage(chatInput);
+              }}
+              className="flex items-center gap-2 p-3 bg-background border-t border-gray-250 dark:border-gray-850"
+            >
+              <span className="font-mono text-xs text-gray-400 select-none ml-1">&gt;</span>
+              <input
+                type="text"
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                placeholder="ask a question..."
+                className="flex-1 px-2 py-1.5 bg-transparent text-ink text-[12.5px] font-mono outline-none placeholder-gray-400"
+              />
+              <button
+                type="submit"
+                className="px-3.5 py-1.5 border border-ink hover:bg-ink hover:text-background font-mono text-[9.5px] uppercase tracking-widest text-ink transition-colors cursor-pointer"
+              >
+                send
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
