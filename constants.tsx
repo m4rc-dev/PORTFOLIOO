@@ -46,30 +46,27 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCE: Experience[] = [
   {
+    role: 'Full-Stack Developer',
+    company: 'Leuterio Realty and Brokerage',
+    period: '2026 - Present',
+    status: 'latest'
+  },
+  {
+    role: 'Full-Stack Developer Intern',
+    company: 'Leuterio Realty and Brokerage',
+    period: '2025 - 2026',
+    status: 'past'
+  },
+  {
     role: 'BS Information Technology',
     company: 'University of Cebu',
     period: '2022 - 2026',
     status: 'latest'
   },
   {
-    role: 'IT Intern',
-    company: 'Ongoing Internship',
-    period: '2026',
-  },
-  {
     role: 'Freelance Developer',
     company: 'Small Projects',
-    period: '2025 - Present'
-  },
-  {
-    role: 'Tech Community Member',
-    company: 'Local IT Groups & Orgs',
-    period: '2025 - Present'
-  },
-  {
-    role: 'Open Source Contributor',
-    company: 'GitHub',
-    period: '2023 - Present'
+    period: '2026 - Present'
   },
   {
     role: 'Personal Projects',
@@ -108,25 +105,7 @@ export const SKILLS: SkillGroup[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  { title: 'Huawei Developer Expert', issuer: 'Huawei' },
-  { title: 'Generative AI Leader', issuer: 'Google' },
-  { title: 'Google Analytics', issuer: 'Google' },
-  { title: 'Digital Marketing', issuer: 'Google' },
-  { title: 'Software Engineering', issuer: 'TestDome' },
-  { title: 'JavaScript', issuer: 'TestDome' },
-  { title: 'PHP', issuer: 'TestDome' },
-  { title: 'Python', issuer: 'TestDome' },
-  { title: 'SQL', issuer: 'TestDome' },
-  { title: 'Scrum Master', issuer: 'TestDome' },
-  { title: 'Lean Six Sigma White Belt', issuer: 'Management & Strategy Institute' },
-  { title: 'Project Management Certified', issuer: 'Management & Strategy Institute' },
-  { title: 'Certified Kanban Associate', issuer: 'International Scrum Institute™' },
-  { title: 'Scrum Associate', issuer: 'International Scrum Institute™' },
-  { title: 'Diploma in Project Management', issuer: 'Alison' },
-  { title: 'Cybersecurity Certificate', issuer: 'Trend Micro' },
-  { title: 'Monitoring Kubernetes', issuer: 'Datadog' },
-  { title: 'Certified Cloud Practitioner', issuer: 'Amazon Web Services (AWS)' },
-  { title: 'Generative AI Certified Professional', issuer: 'Oracle' }
+  { title: 'Microsoft Artificial Intelligence Course: Azure AI Fundamentals', issuer: 'TESDA', url: 'https://drive.google.com/file/d/1t6ZlbWCJYb6SaHZJLh7oBCiZVPanGb54/view' }
 ];
 
 export const MEMBERSHIPS = [

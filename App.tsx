@@ -131,11 +131,7 @@ const App: React.FC = () => {
     </button>
   );
 
-  const ViewFooter = () => (
-    <footer className="mt-24 border-t border-gray-200 pt-10 text-center">
-      <p className="text-gray-400 text-[10px] font-mono uppercase tracking-widest">© 2026 Marcelo Cagara</p>
-    </footer>
-  );
+
 
   return (
     <div className="min-h-screen bg-background text-ink font-sans transition-colors duration-500 selection:bg-ink selection:text-background">
@@ -463,9 +459,9 @@ const App: React.FC = () => {
                   <span className="font-pixel text-[10px] uppercase tracking-widest text-gray-400">01 — about</span>
                 </div>
                 <div className="text-[15px] leading-relaxed text-gray-500 space-y-3">
-                  <p>Full-stack developer and dedicated student, passionate about building impactful solutions with JavaScript, Python, and PHP. I enjoy creating modern web and mobile applications.</p>
-                  <p>I've been honing my skills through academic and personal projects, focusing on practical solutions, improving workflows, and understanding how technology supports real users and small teams.</p>
-                  <p>Currently exploring AI — integrating modern tools into user-centric applications. Seeking an internship where I can learn from experienced developers and continue growing as a full-stack engineer.</p>
+                  <p>Full-stack developer passionate about building impactful solutions with JavaScript, Python, and PHP. I enjoy crafting modern web and mobile applications that are fast, clean, and actually useful.</p>
+                  <p>I've built and shipped real projects focused on practical solutions — improving workflows and understanding how technology supports real users and small teams.</p>
+                  <p>Currently exploring AI and integrating modern tools into user-centric applications. Always looking for opportunities to collaborate on meaningful products and continue growing as an engineer.</p>
                 </div>
               </section>
 
@@ -607,17 +603,7 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              {/* Footer */}
-              <footer className="py-10 text-center flex flex-col items-center gap-3">
-                {showCounter && (
-                  <div className="px-4 py-1.5 border border-gray-200 rounded-full flex items-center gap-2 bg-gray-50">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=marcelo-portfolio&style=0006&nbdigits=5&type=page&initCount=0" alt="Visitors" className="h-4 opacity-70 invert dark:invert-0" />
-                    <span className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">Visitors</span>
-                  </div>
-                )}
-                <p className="text-gray-400 text-[10px] font-mono uppercase tracking-widest">© 2026 Marcelo Cagara. All rights reserved.</p>
-              </footer>
+
 
             </div>
           )}
@@ -649,7 +635,7 @@ const App: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <ViewFooter />
+
             </div>
           )}
 
@@ -692,7 +678,7 @@ const App: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <ViewFooter />
+
             </div>
           )}
 
@@ -704,18 +690,43 @@ const App: React.FC = () => {
               <BackButton />
               <h1 className="font-pixel text-4xl lowercase tracking-tight mb-8 sm:mb-12">certifications</h1>
               <div className="space-y-0">
-                {CERTIFICATIONS.map((cert, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-0 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-default animate-fade-up"
-                    style={{ animationDelay: `${50 + i * 40}ms` }}
-                  >
-                    <span className="text-[15px] font-semibold text-ink">{cert.title}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-gray-400 sm:flex-shrink-0 sm:ml-4">{cert.issuer}</span>
-                  </div>
-                ))}
+                {CERTIFICATIONS.map((cert, i) => {
+                  const inner = (
+                    <>
+                      <span className="text-[15px] font-semibold text-ink">{cert.title}</span>
+                      <div className="flex items-center gap-3 sm:flex-shrink-0 sm:ml-4">
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-gray-400">{cert.issuer}</span>
+                        {cert.url && (
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-gray-400 group-hover:text-ink transition-colors border border-gray-300 group-hover:border-ink px-2 py-0.5 rounded-sm">
+                            verify →
+                          </span>
+                        )}
+                      </div>
+                    </>
+                  );
+                  return cert.url ? (
+                    <a
+                      key={i}
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors no-underline animate-fade-up"
+                      style={{ animationDelay: `${50 + i * 40}ms` }}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <div
+                      key={i}
+                      className="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0 py-4 border-b border-gray-200 cursor-default animate-fade-up"
+                      style={{ animationDelay: `${50 + i * 40}ms` }}
+                    >
+                      {inner}
+                    </div>
+                  );
+                })}
               </div>
-              <ViewFooter />
+
             </div>
           )}
 
