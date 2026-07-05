@@ -137,6 +137,38 @@ const renderMessageText = (text: string) => {
   });
 };
 
+const generateMockContributions = () => {
+  const cols = 53;
+  const rows = 7;
+  const grid: number[][] = [];
+  
+  let seed = 42;
+  const random = () => {
+    const x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+  };
+
+  for (let r = 0; r < rows; r++) {
+    const rowList: number[] = [];
+    for (let c = 0; c < cols; c++) {
+      const baseValue = Math.sin(c * 0.15) * Math.cos(r * 0.4) * 2 + 1;
+      const noise = random() * 2;
+      const value = baseValue + noise;
+      
+      let level = 0;
+      if (value > 2.2) level = 4;
+      else if (value > 1.4) level = 3;
+      else if (value > 0.7) level = 2;
+      else if (value > 0.1) level = 1;
+      else level = 0;
+      
+      rowList.push(level);
+    }
+    grid.push(rowList);
+  }
+  return grid;
+};
+
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -150,6 +182,48 @@ const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showCounter, setShowCounter] = useState(false);
+
+  // ── Real GitHub contribution data ──────────────────────────────────────────
+  type ContribDay = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
+  const [ghGrid, setGhGrid] = useState<number[][]>([]);
+  const [ghTotal, setGhTotal] = useState<number | null>(null);
+
+  useEffect(() => {
+    const username = 'm4rc-dev';
+    fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`)
+      .then(r => r.json())
+      .then((data: { contributions: ContribDay[]; total: { lastYear: number } }) => {
+        // Sort ascending by date
+        const days: ContribDay[] = [...data.contributions].sort(
+          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+
+        // Pad so the grid starts on Sunday (day 0)
+        const firstDow = new Date(days[0].date).getDay(); // 0=Sun
+        const padded = [
+          ...Array.from({ length: firstDow }, () => ({ date: '', count: 0, level: 0 as const })),
+          ...days,
+        ];
+
+        // Build 7-row grid (row = day-of-week, col = week)
+        const totalCols = Math.ceil(padded.length / 7);
+        const rows: number[][] = Array.from({ length: 7 }, () =>
+          new Array(totalCols).fill(0)
+        );
+        padded.forEach((d, i) => {
+          const col = Math.floor(i / 7);
+          const row = i % 7;
+          rows[row][col] = d.level;
+        });
+
+        setGhGrid(rows);
+        setGhTotal(data.total.lastYear);
+      })
+      .catch(() => {
+        // Silently fall back to mock data on error
+      });
+  }, []);
+  // ────────────────────────────────────────────────────────────────────────────
 
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatInput, setChatInput] = useState('');
@@ -817,7 +891,88 @@ const App: React.FC = () => {
                 </div>
               </section>
 
+              {/* ── 06 — Github ────────────────────────────────────────────── */}
+              <section className="mb-14 animate-fade-up" style={{ animationDelay: '400ms' }}>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-pixel text-[10px] uppercase tracking-widest text-gray-400">06 — github</span>
+                  <a
+                    href="https://github.com/m4rc-dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-[10px] uppercase tracking-wider text-gray-400 hover:text-ink transition-colors no-underline"
+                  >
+                    @m4rc-dev ↗
+                  </a>
+                </div>
+                
+                {/* Contribution SVG Dot Chart — real GitHub data */}
+                {(() => {
+                  // Use fetched real data, fall back to mock while loading
+                  const grid = ghGrid.length > 0 ? ghGrid : generateMockContributions();
+                  const isMock = ghGrid.length === 0;
+                  const cols = grid[0]?.length ?? 53;
+                  const rows = grid.length;   // 7
+                  const STEP = 13;            // px between dot centres
+                  const svgW = cols * STEP;
+                  const svgH = rows * STEP;
 
+                  // Bryl's exact radii per level
+                  const radii = [1.1, 2.7, 3.8, 4.8, 5.7];
+
+                  const circles: React.ReactNode[] = [];
+                  for (let c = 0; c < cols; c++) {
+                    for (let r = 0; r < rows; r++) {
+                      const level = grid[r]?.[c] ?? 0;
+                      const cx = c * STEP + STEP / 2;
+                      const cy = r * STEP + STEP / 2;
+                      const rad = radii[Math.min(level, 4)];
+                      const opacity = level === 0 ? 0.12 : 0.92;
+                      circles.push(
+                        <circle
+                          key={`${c}-${r}`}
+                          cx={cx}
+                          cy={cy}
+                          r={rad}
+                          fill="currentColor"
+                          opacity={opacity}
+                        />
+                      );
+                    }
+                  }
+
+                  return (
+                    <>
+                      <a
+                        href="https://github.com/m4rc-dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full overflow-x-auto"
+                        style={{ scrollbarWidth: 'none' }}
+                      >
+                        <svg
+                          viewBox={`0 0 ${svgW} ${svgH}`}
+                          width={svgW}
+                          height={svgH}
+                          style={{
+                            display: 'block',
+                            minWidth: svgW,
+                            opacity: isMock ? 0.35 : 1,
+                            transition: 'opacity 0.6s ease',
+                          }}
+                          aria-label="GitHub contribution chart"
+                        >
+                          {circles}
+                        </svg>
+                      </a>
+                      <p className="font-mono text-[9px] uppercase tracking-widest text-gray-400 mt-3 text-left">
+                        {ghTotal !== null
+                          ? `${ghTotal.toLocaleString()} contributions in the last year`
+                          : 'loading contributions…'}
+                      </p>
+                    </>
+                  );
+                })()}
+              </section>
 
             </div>
           )}
