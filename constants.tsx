@@ -105,6 +105,8 @@ export const SKILLS: SkillGroup[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  { title: 'AI for App Building', issuer: 'Google', url: 'https://coursera.org/share/02315ef314f8c0d69ceadc239b045bc9' },
+  { title: 'Responsible AI: Applying AI Principles with Google Cloud', issuer: 'Google Cloud', url: 'https://coursera.org/share/c04b6432ddc06358440047e1803f4d44' },
   { title: 'Microsoft Artificial Intelligence Course: Azure AI Fundamentals', issuer: 'TESDA', url: 'https://drive.google.com/file/d/1t6ZlbWCJYb6SaHZJLh7oBCiZVPanGb54/view' }
 ];
 
