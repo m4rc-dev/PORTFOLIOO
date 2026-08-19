@@ -23,11 +23,11 @@ export const PROJECTS: Project[] = [
     tags: ['React', 'TypeScript', 'Capacitor']
   },
   {
-    id: '5',
+    id: '3',
     title: 'RepoHealth',
     description: 'GitHub repo health scoring with transparent analytics.',
-    link: 'https://github-health-analyzer.onrender.com',
-    url: 'https://github-health-analyzer.onrender.com',
+    link: 'https://github-health-analyzer-wovz.onrender.com/',
+    url: 'https://github-health-analyzer-wovz.onrender.com/',
 
     year: '2025',
     tags: ['Python', 'FastAPI', 'SQLite', 'Chart.js']
