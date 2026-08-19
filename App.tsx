@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { PROJECTS, EXPERIENCE, SKILLS, CERTIFICATIONS, GALLERY_IMAGES } from './constants';
+import { useVisitorTracking } from './useVisitorTracking';
 
 type AppView = 'home' | 'tech-stack' | 'projects' | 'certifications';
 
@@ -170,6 +171,8 @@ const generateMockContributions = () => {
 };
 
 const App: React.FC = () => {
+  useVisitorTracking();
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
@@ -182,6 +185,52 @@ const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showCounter, setShowCounter] = useState(false);
+
+  // ── Simulated live viewer count ──────────────────────────────────────────
+  const AVATAR_POOL = [
+    'marcelo', 'cagara', 'dev', 'pixel', 'neo', 'atlas', 'nova', 'zen',
+    'echo', 'vega', 'onyx', 'rune', 'flux', 'aria', 'byte', 'lynx'
+  ];
+
+  const [viewerCount, setViewerCount] = useState(() => {
+    // Start with a realistic base between 8 and 28
+    return Math.floor(Math.random() * 21) + 8;
+  });
+
+  const [avatarSeeds, setAvatarSeeds] = useState<string[]>(() => {
+    // Pick 3 random unique seeds from the pool
+    const shuffled = [...AVATAR_POOL].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 3);
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setViewerCount(prev => {
+        // Organic fluctuation: drift ±1–3, biased toward a midpoint (~18)
+        const drift = Math.floor(Math.random() * 3) + 1;
+        const direction = Math.random() < (prev > 18 ? 0.6 : 0.4) ? -1 : 1;
+        const next = prev + drift * direction;
+        // Clamp between 3 and 42
+        return Math.max(3, Math.min(42, next));
+      });
+
+      // Occasionally rotate one avatar seed (30% chance per tick)
+      if (Math.random() < 0.3) {
+        setAvatarSeeds(prev => {
+          const idx = Math.floor(Math.random() * 3);
+          const unused = AVATAR_POOL.filter(s => !prev.includes(s));
+          if (unused.length === 0) return prev;
+          const newSeed = unused[Math.floor(Math.random() * unused.length)];
+          const next = [...prev];
+          next[idx] = newSeed;
+          return next;
+        });
+      }
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
+  // ────────────────────────────────────────────────────────────────────────────
 
   // ── Real GitHub contribution data ──────────────────────────────────────────
   type ContribDay = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
@@ -482,18 +531,20 @@ const App: React.FC = () => {
           {/* Avatar stack + count */}
           <div className="flex items-center">
             <div className="flex -space-x-2">
-              <img className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale" src="https://api.dicebear.com/7.x/open-peeps/svg?seed=marcelo" alt="user" />
-              <img className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale" src="https://api.dicebear.com/7.x/open-peeps/svg?seed=cagara" alt="user" />
-              <img className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale" src="https://api.dicebear.com/7.x/open-peeps/svg?seed=dev" alt="user" />
+              {avatarSeeds.map((seed) => (
+                <img key={seed} className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale transition-opacity duration-500" src={`https://api.dicebear.com/7.x/open-peeps/svg?seed=${seed}`} alt="viewer" />
+              ))}
             </div>
-            <div className="ml-2.5 px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 text-[9px] font-mono text-gray-500">
-              +32
-            </div>
+            {viewerCount > 3 && (
+              <div className="ml-2.5 px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 text-[9px] font-mono text-gray-500">
+                +{viewerCount - 3}
+              </div>
+            )}
           </div>
 
           {/* Viewer count */}
           <div className="text-[11px] font-mono text-gray-400">
-            <span className="font-bold text-ink mr-1">35</span>
+            <span className="font-bold text-ink mr-1">{viewerCount}</span>
             people viewing now
           </div>
         </div>
@@ -611,18 +662,20 @@ const App: React.FC = () => {
           {/* Avatar stack + count */}
           <div className="flex items-center">
             <div className="flex -space-x-2">
-              <img className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale" src="https://api.dicebear.com/7.x/open-peeps/svg?seed=marcelo" alt="user" />
-              <img className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale" src="https://api.dicebear.com/7.x/open-peeps/svg?seed=cagara" alt="user" />
-              <img className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale" src="https://api.dicebear.com/7.x/open-peeps/svg?seed=dev" alt="user" />
+              {avatarSeeds.map((seed) => (
+                <img key={seed} className="w-6 h-6 rounded-full border border-background bg-gray-100 object-cover grayscale transition-opacity duration-500" src={`https://api.dicebear.com/7.x/open-peeps/svg?seed=${seed}`} alt="viewer" />
+              ))}
             </div>
-            <div className="ml-2.5 px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 text-[9px] font-mono text-gray-500">
-              +32
-            </div>
+            {viewerCount > 3 && (
+              <div className="ml-2.5 px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 text-[9px] font-mono text-gray-500">
+                +{viewerCount - 3}
+              </div>
+            )}
           </div>
 
           {/* Viewer count */}
           <div className="text-[11px] font-mono text-gray-400">
-            <span className="font-bold text-ink mr-1">35</span>
+            <span className="font-bold text-ink mr-1">{viewerCount}</span>
             people viewing now
           </div>
         </div>

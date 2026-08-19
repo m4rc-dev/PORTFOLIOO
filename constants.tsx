@@ -23,14 +23,14 @@ export const PROJECTS: Project[] = [
     tags: ['React', 'TypeScript', 'Capacitor']
   },
   {
-    id: '3',
-    title: 'HabitWork',
-    description: 'Habit tracker with visual analytics.',
-    link: 'https://habit-work.vercel.app/',
-    url: 'https://habit-work.vercel.app/',
+    id: '5',
+    title: 'RepoHealth',
+    description: 'GitHub repo health scoring with transparent analytics.',
+    link: 'https://github-health-analyzer.onrender.com',
+    url: 'https://github-health-analyzer.onrender.com',
 
     year: '2025',
-    tags: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Recharts']
+    tags: ['Python', 'FastAPI', 'SQLite', 'Chart.js']
   },
   {
     id: '4',
@@ -52,6 +52,12 @@ export const EXPERIENCE: Experience[] = [
     status: 'latest'
   },
   {
+    role: 'Freelance Developer',
+    company: 'Small Projects',
+    period: '2026 - Present'
+  },
+
+  {
     role: 'Full-Stack Developer Intern',
     company: 'Leuterio Realty and Brokerage',
     period: '2025 - 2026',
@@ -63,11 +69,7 @@ export const EXPERIENCE: Experience[] = [
     period: '2022 - 2026',
     status: 'latest'
   },
-  {
-    role: 'Freelance Developer',
-    company: 'Small Projects',
-    period: '2026 - Present'
-  },
+
   {
     role: 'Personal Projects',
     company: 'Self-driven Lab',
