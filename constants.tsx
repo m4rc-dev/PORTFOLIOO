@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     link: 'https://github-health-analyzer-wovz.onrender.com/',
     url: 'https://github-health-analyzer-wovz.onrender.com/',
 
-    year: '2025',
+    year: '2026',
     tags: ['Python', 'FastAPI', 'SQLite', 'Chart.js']
   },
   {
@@ -89,7 +89,7 @@ export const SKILLS: SkillGroup[] = [
   },
   {
     category: 'Backend',
-    skills: ['Node.js', 'Python', 'Java', 'PHP', 'Express.js', 'NestJS', 'FastAPI', 'Laravel', 'PostgreSQL', 'MySQL', 'MongoDB', 'OAuth', 'JWT', 'REST',]
+    skills: ['Node.js', 'Python', 'PHP', 'Express.js', 'FastAPI', 'PostgreSQL', 'MySQL', 'MongoDB', 'OAuth', 'JWT', 'REST',]
   },
   {
     category: 'DevOps & Cloud',
