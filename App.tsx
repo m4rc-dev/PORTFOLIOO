@@ -24,7 +24,7 @@ const getAssistantResponse = (userInput: string): ChatMessage => {
   if (query.includes('project') || query.includes('portfolio') || query.includes('app') || query.includes('📂')) {
     return {
       sender: 'assistant',
-      text: "Here are some of my key projects:\n\n• **Authentiq**: Digital asset verification with AI (React, TS, Vite, Tailwind CSS).\n• **SkillPath**: Personalized learning and roadmap tracker (React, TS, Capacitor).\n• **HabitWork**: Habit tracker with visual analytics (React, TS, Tailwind, Recharts).\n• **Weather Dashboard**: Real-time interactive weather dashboard (Next.js, React, Tailwind, Recharts).\n\nWould you like to navigate to the projects page, or check out my tech stack?",
+      text: "Here are some of my key projects:\n\n• **Authentiq**: Digital asset verification with AI (React, TS, Vite, Tailwind CSS).\n• **SkillPath**: Personalized learning and roadmap tracker (React, TS, Capacitor).\n• **HabitWork**: Habit tracker with visual analytics (React, TS, Tailwind, Recharts).\n• **iDontTrustYourServer**: A browser-based file toolkit with no backend or uploads (React, Vite, TypeScript).\n\nWould you like to navigate to the projects page, or check out my tech stack?",
       options: [
         "🚀 Go to Projects page",
         "🛠️ What is your tech stack?",

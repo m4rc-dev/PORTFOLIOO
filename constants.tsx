@@ -34,13 +34,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '4',
-    title: 'Weather Dashboard',
-    description: 'Real-time interactive weather dashboard.',
-    link: 'https://weather-dashboarddd.vercel.app/',
-    url: 'https://weather-dashboarddd.vercel.app/',
+    title: 'iDontTrustYourServer',
+    description: 'A file toolkit that runs entirely in the browser.',
+    link: 'https://i-dont-trust-your-server.vercel.app/',
+    url: 'https://i-dont-trust-your-server.vercel.app/',
 
     year: '2025',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Recharts', 'Radix UI']
+    tags: ['Browser', 'Privacy', 'File Toolkit', 'Web App']
   }
 ];
 
